@@ -19,8 +19,22 @@ namespace QuizGrader
         public void Administer()
         {
             // Walk through list of questions and ask user for responses
+
             // Call GradeQuestion for each Question in the list to check
             // if the user got the answer correct
+            int numCorrect = 0;
+
+            foreach (Question q in Questions)
+            {
+                q.PromptQuestion();
+
+                bool correct = q.GradeQuestion();
+                if (correct)
+                {
+                    numCorrect++;
+                }
+            }
+            Console.WriteLine("You got " + numCorrect + "Correct out of" + Questions.Count);
         }
     }
 }

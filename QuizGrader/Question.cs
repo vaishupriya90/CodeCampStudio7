@@ -14,6 +14,8 @@ namespace QuizGrader
 
         public string Prompt { get; set; }
         public List<string> Options { get; set; }
+        //add correct answer
+       
 
         // NZ stands for New Zoo (T/F)
         public Question(string prompt, List<string> options)
@@ -22,6 +24,18 @@ namespace QuizGrader
             Options = options;
         }
 
-        public abstract bool GradeQuestion(List<string> userResponse);
+        public void PromptQuestion()
+        {
+            //Display prompt
+            Console.WriteLine(Prompt);
+            //Display each option in the option list
+            foreach(string option in Options)
+            {
+                Console.WriteLine(option);
+            }
+
+        }
+
+        public abstract bool GradeQuestion();
     }
 }
